@@ -78,11 +78,11 @@ def pantalla_final():
 
 #importar imagenes
 #energia
-corazon_vacio = pygame.image.load( os.path.join("asset/items/vida1.png")).convert_alpha()
+corazon_vacio = pygame.image.load( os.path.join("asset/items/vida3.png")).convert_alpha()
 corazon_vacio = escalar_img(corazon_vacio, constantes.SCALA_CORAZON)
 corazon_medio = pygame.image.load( os.path.join("asset/items/vida2.png")).convert_alpha()
 corazon_medio = escalar_img(corazon_medio, constantes.SCALA_CORAZON)
-corazon_lleno = pygame.image.load( os.path.join("asset/items/vida3.png")).convert_alpha()
+corazon_lleno = pygame.image.load( os.path.join("asset/items/vida1.png")).convert_alpha()
 corazon_lleno = escalar_img(corazon_lleno, constantes.SCALA_CORAZON)
 
 
