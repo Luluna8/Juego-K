@@ -41,11 +41,11 @@ def cargar_ruta(*path):
     return  os.path.join(ruta_base,*path)
 
 #Fuentes
-font =pygame.font.Font(cargar_ruta("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//font//brackeys_platformer_assets//PixelOperator8-Bold.ttf"), 25)
-font_game_over = pygame.font.Font(cargar_ruta("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//font//brackeys_platformer_assets//PixelOperator8-Bold.ttf"), 70)
-font_reinicio= pygame.font.Font(cargar_ruta("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//font//brackeys_platformer_assets//PixelOperator8-Bold.ttf"), 15)
-font_inicio = pygame.font.Font(cargar_ruta("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//font//brackeys_platformer_assets//PixelOperator8-Bold.ttf"), 25)
-font_salir = pygame.font.Font(cargar_ruta("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//font//brackeys_platformer_assets//PixelOperator8-Bold.ttf"), 25)
+font =pygame.font.Font(cargar_ruta("asset/font/PixelOperator8-Bold.ttf"), 25)
+font_game_over = pygame.font.Font(cargar_ruta("asset/font/PixelOperator8-Bold.ttf"), 70)
+font_reinicio= pygame.font.Font(cargar_ruta("asset/font/PixelOperator8-Bold.ttf"), 15)
+font_inicio = pygame.font.Font(cargar_ruta("asset/font/PixelOperator8-Bold.ttf"), 25)
+font_salir = pygame.font.Font(cargar_ruta("asset/font/PixelOperator8-Bold.ttf"), 25)
 
 
 
@@ -78,11 +78,11 @@ def pantalla_final():
 
 #importar imagenes
 #energia
-corazon_vacio = pygame.image.load( os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//items//vida3.png")).convert_alpha()
+corazon_vacio = pygame.image.load( os.path.join("asset/items/vida1.png")).convert_alpha()
 corazon_vacio = escalar_img(corazon_vacio, constantes.SCALA_CORAZON)
-corazon_medio = pygame.image.load( os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//items//vida2.png")).convert_alpha()
+corazon_medio = pygame.image.load( os.path.join("asset/items/vida2.png")).convert_alpha()
 corazon_medio = escalar_img(corazon_medio, constantes.SCALA_CORAZON)
-corazon_lleno = pygame.image.load( os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//items//vida1.png")).convert_alpha()
+corazon_lleno = pygame.image.load( os.path.join("asset/items/vida3.png")).convert_alpha()
 corazon_lleno = escalar_img(corazon_lleno, constantes.SCALA_CORAZON)
 
 
@@ -92,17 +92,17 @@ corazon_lleno = escalar_img(corazon_lleno, constantes.SCALA_CORAZON)
 
 animaciones =[]
 for i in range(3):
-    img = pygame.image.load(os.path.join(f"C://Users//Lucia//Desktop//Python//pygame//Juego//asset//player//je{i}.png"))
+    img = pygame.image.load(os.path.join(f"asset/player/je{i}.png"))
     img = escalar_img(img, constantes.SCALA_PERSONAJE)
     animaciones.append(img)
 
 #Enemigos
-directorio_enemigos = os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//enemy")
+directorio_enemigos = os.path.join("asset/enemy")
 tipo_enemigos = nombre_carpeta(directorio_enemigos)
 animaciones_enemigos = []
 for eni in tipo_enemigos:
     lista_temp = []
-    ruta_temp = os.path.join(f"C://Users//Lucia//Desktop//Python//pygame//Juego//asset//enemy//{eni}")
+    ruta_temp = os.path.join(f"asset/enemy/{eni}")
     num_animaciones = contar_elemento(ruta_temp)
 
     for i in range(num_animaciones):
@@ -115,7 +115,7 @@ print(animaciones_enemigos)
 #Carga del mundo
 tile_list = []
 for x in range (constantes.TILE_TYPE):
-    tile_image = pygame.image.load(os.path.join(f"C://Users//Lucia//Desktop//Python//pygame//Juego//asset//tiles//tile_{x}.png"))
+    tile_image = pygame.image.load(os.path.join(f"asset/tiles/tile_{x}.png"))
     tile_image = pygame.transform.scale(tile_image,(constantes.TILET_SIZE,constantes.TILET_SIZE))
     tile_list.append(tile_image)
 
@@ -123,14 +123,14 @@ for x in range (constantes.TILE_TYPE):
 
 
 #items
-posion_verde = pygame.image.load(os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//item//pocion//pocion1.png"))
+posion_verde = pygame.image.load(os.path.join("asset/item/pocion/pocion1.png"))
 posion_verde = escalar_img(posion_verde, 1)
 
 coin_image =[]
-ruta_imag = os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//item//moneda")
+ruta_imag = os.path.join("asset/item/moneda")
 num_coin_img = contar_elemento(ruta_imag)
 for i in range(num_coin_img):
-    img = pygame.image.load( os.path.join(f"C://Users//Lucia//Desktop//Python//pygame//Juego//asset//item//moneda//moneda_{i+1}.png"))
+    img = pygame.image.load( os.path.join(f"asset/item/moneda/moneda_{i+1}.png"))
     img= escalar_img(img,1)
     coin_image.append(img)
 item_imagenes = [coin_image, [posion_verde]]
@@ -166,7 +166,7 @@ for fila in range(constantes.FILAS):
     world_data.append(filas)
 
 # Cargar el nivel
-with open("C:/Users/Lucia/Desktop/Python/pygame/Juego/asset/niveles/nivel_1.csv", newline="" )as  csvfile:
+with open("asset/niveles/nivel_1.csv", newline="" )as  csvfile:
     reader = csv.reader(csvfile, delimiter=",")
     for x, fila in enumerate(reader):
         for y, columna in enumerate(fila):
@@ -193,12 +193,12 @@ for ene in world.lista_enemigo:
 
 
 #Balas
-imagen_bala = pygame.image.load(os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//armas//bala2.png"))
+imagen_bala = pygame.image.load(os.path.join("asset/armas/bala2.png"))
 imagen_bala = escalar_img(imagen_bala, constantes.SCALA_ARMA)
 
 #Arma
 
-image_pistola = pygame.image.load(os.path.join("C://Users//Lucia//Desktop//Python//pygame//Juego//asset//armas//gun.png"))
+image_pistola = pygame.image.load(os.path.join("asset/armas/gun.png"))
 image_pistola = escalar_img(image_pistola, constantes.SCALA_ARMA)
 pistola = Weadpoon(image_pistola, imagen_bala)
 
@@ -227,9 +227,9 @@ mover_abajo = False
 mover_izquierda = False
 mover_derecha = False
 
-pygame.mixer.music.load(os.path.join("C:/Users/Lucia/Desktop/Python/pygame/Juego/asset/sound/time_for_adventure.mp3"))
+pygame.mixer.music.load(os.path.join("asset/sound/time_for_adventure.mp3"))
 pygame.mixer.music.play(-1)
-somido_disparo = pygame.mixer.Sound(os.path.join("C:/Users/Lucia/Desktop/Python/pygame/Juego/asset/sound/disparo2.mp3"))
+somido_disparo = pygame.mixer.Sound(os.path.join("asset/sound/disparo2.mp3"))
 
 
 boton_reinicio = pygame.Rect(constantes.ANCHO_VENTANA/2-100,
@@ -317,7 +317,7 @@ while run:
              nivel +=1
              world_data = resetear_mundo()
             # Cargar el nivel
-             with open(f"C:/Users/Lucia/Desktop/Python/pygame/Juego/asset/niveles/nivel_{nivel}.csv", newline="") as csvfile:
+             with open(f"asset/niveles/nivel_{nivel}.csv", newline="") as csvfile:
                  reader = csv.reader(csvfile, delimiter=",")
                  for x, fila in enumerate(reader):
                      for y, columna in enumerate(fila):
@@ -432,7 +432,7 @@ while run:
                     jugador.score = 0
                     nivel = 1
                     world_data = resetear_mundo()
-                    with open(f"C:/Users/Lucia/Desktop/Python/pygame/Juego/asset/niveles/nivel_{nivel}.csv",
+                    with open(f"asset/niveles/nivel_{nivel}.csv",
                               newline="") as csvfile:
                         reader = csv.reader(csvfile, delimiter=",")
                         for x, fila in enumerate(reader):
