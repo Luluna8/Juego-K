@@ -1,4 +1,4 @@
-# Juego-K
+# Juego W
 Competencias duras
 ### # Warrior Game - Juego en Python con PyGame
 ##Descripción
